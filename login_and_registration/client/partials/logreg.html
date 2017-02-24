@@ -1,0 +1,20 @@
+<div ng-controller='sessionController'>
+    <h1>Register</h1>
+    <form>
+        First Name: <input type="text" ng-model='reg.first_name'><br>
+        Last Name: <input type="text" ng-model='reg.last_name'><br>
+        Email: <input type="email" ng-model='reg.email'><br>
+        Password: <input type="password" ng-model='reg.password'><br>
+        Confirm Password: <input type="password" ng-model='reg.confirm_password'><br>
+        Birthday: <input type="date" ng-model='reg.bday'><br>
+        <input type="submit" value="Register" ng-click='register()'><br>
+    </form>
+
+    <h1>Login</h1>
+    <form>
+        Email: <input type="text" ng-model='log.email'><br>
+        Password: <input type="password" ng-model='log.password'><br>
+        <input type="submit" value="Login" ng-click='login()'><br>
+    </form>
+
+</div>

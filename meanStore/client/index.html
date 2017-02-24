@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+        <script src='app.js'></script>
+        <script src='./controllers/customers.js'></script>
+        <script src='./factories/customers.js'></script>
+        <script src='./controllers/products.js'></script>
+        <script src='./factories/products.js'></script>
+        <script src='./controllers/orders.js'></script>
+    </head>
+    <body>
+        <a href="#/">Dash</a> | <a href="#/products">Products</a> | <a href="#/orders">Orders</a> | <a href="#/customers">Customers</a> | <a href="">Settings</a>
+        <div ng-view>
+
+        </div>
+    </body>
+</html>

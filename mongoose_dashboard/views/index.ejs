@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Display Mongooses Here</h1>
+            <% for (i in animals) { %>
+                <p>Name: <a href="/mongooses/<%=animals[i]._id %>"><%=animals[i].name%></a></p>
+                <p>Type: <%=animals[i].type%></p>
+                <a href="/mongooses/edit/<%=animals[i]._id %>">Edit</a>
+                <a href="/mongooses/destroy/<%=animals[i]._id %>">Delete</a>
+            <% } %>
+        </div>
+    </body>
+</html>

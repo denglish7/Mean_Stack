@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>The Dojo Message Board</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>The Dojo Message Board</h1>
+            <form class="messages" action="/message" method="post">
+                Name: <input type="text" name="name" value="">
+                Message: <textarea name="message" rows="8" cols="80"></textarea>
+                <input type="submit" name="" value="Post message">
+            </form>
+            <% if(typeof(errors) != 'undefined'){ %>
+                <% for(var x in errors) { %>
+                    <p><%=errors[x].message %></p>
+                <% } %>
+            <% } else { %>
+                <% for(var i in messages) { %>
+                    <p>Name: <%=messages[i].name%></p>
+                    <p>Message: <%=messages[i].text%></p>
+                    <% for(var j=0; j<messages[i].comments.length; j++) { %>
+                        <p>Name: <%=messages[i].comments[j].name %></p>
+                        <p>Comment: <%=messages[i].comments[j].text %></p>
+                    <% } %>
+                    <form class="comments" action="/comment/<%=messages[i]._id %>" method="post">
+                        Name: <input type="text" name="name" value="">
+                        Comment: <textarea name="text" rows="8" cols="80"></textarea>
+                        <input type="submit" name="" value="Post comment">
+                    </form>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>

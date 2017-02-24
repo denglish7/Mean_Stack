@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="productApp" lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>Product Factory</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script type='text/javascript' src='app.js'></script>
+        <script type='text/javascript' src='./controllers/products.js'></script>
+        <script type='text/javascript' src='./controllers/orders.js'></script>
+        <script type='text/javascript' src='./factories/products.js'></script>
+    </head>
+    <body>
+        <div ng-controller='productController'>
+            <h1>Products Controller</h1>
+            Product Name: <input type="text" ng-model='newProduct.name'>
+            Product Price: <input type="number" ng-model='newProduct.price'>
+            <button ng-click="addProduct()">Add Product</button>
+            <div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat='product in products | orderBy: -"price" track by $index'>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td><button ng-click='removeProduct($index)'>Delete Product</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div ng-controller='orderController'>
+            <h1>Orders Controller</h1>
+            <div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Qty Available</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat='product in products | orderBy: -"price" track by $index'>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.qty}}</td>
+                        <td><button ng-click='buy($index)' ng-if='product.qty > 0'>Buy</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

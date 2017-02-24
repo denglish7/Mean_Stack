@@ -1,0 +1,28 @@
+<div ng-controller='orderController'>
+    <h3>Add a new order</h3>
+    Customer: <select ng-model='newOrder._customer' name="" id="">
+        <option ng-repeat='customer in customers'value="{{customer._id}}">{{customer.name}}</option>
+    </select>
+
+
+    <input type="number" min='1' max='{{product.qty}}' placeholder="Quantity..." ng-model='newOrder.qty'>
+    <select class="" name="" ng-model='newOrder._product'>
+        <option ng-repeat='product in products' value="{{product._id}}">{{product.name}}</option>
+    </select>
+    <button ng-click='createOrder()'>Order</button>
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        <tr ng-repeat='order in orders'>
+            <td>{{order._customer.name}}</td>
+            <td>{{order._product.name}}</td>
+            <td>{{order.qty}}</td>
+            <td>{{order.createdAt | date: MMMM}}</td>
+        </tr>
+    </table>
+
+</div>

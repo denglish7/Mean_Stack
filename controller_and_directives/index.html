@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='myMod'>
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script type='text/javascript' src='app.js'></script>
+        <script type='text/javascript' src='./controllers/users.js'></script>
+    </head>
+    <body>
+        <div ng-controller='userController'>
+            <h1 ng-bind='welcome'></h1>
+            Favorite Food <input type="text" ng-model='newFood'>
+            <h2>Currently typing: {{newFood}}</h2>
+            <button ng-click='addFood()'>Add a food</button>
+            <input type="text" ng-model='search'>
+            <div ng-repeat='food in foods | filter: search track by $index' ng-if="food != 'Fries'">
+                {{food}}
+            </div>
+            <button ng-click='showText()'>Hide the text below</button>
+            <h3 ng-hide='Hi'>Hi</h3>
+            <button ng-click='showHello()'>Show the text below</button>
+            <h3 ng-show='Hello'>Hello</h3>
+        </div>
+    </body>
+</html>

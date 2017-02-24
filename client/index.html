@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app='myMod'>
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src=./controllers/users.js></script>
+    </head>
+    <body>
+        <div ng-controller='userController'>
+            <input type="text" ng-model='newCat'>
+            <button ng-click='add()'>Add Cat</button>
+            <input type="text" ng-model='search'>
+            <div ng-repeat='cat in cats| filter: search track by $index' style='border: thin solid black'>
+                {{cat}} <button ng-click='delete($index)'>Delete</button>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<div ng-controller='sessionController'>
+    <a href="#/dash">Home</a>
+    <h2>{{cur_user.name}}'s Friends and Comments</h2>
+
+    <div ng-repeat='friend in cur_user._friends'>
+        <h4>{{friend.name}}</h4>
+    </div>
+    <div ng-controller='commentController'>
+        <input type="text" ng-model='newComment.text'>
+        <button ng-click='addComment(cur_user._id)'>Add Comment</button>
+        <div ng-repeat='comment in cur_user._comments'>
+            <p>{{comment._creator.name}} says {{comment.text}} to {{cur_user.name}}</p>
+        </div>
+
+    </div>
+</div>

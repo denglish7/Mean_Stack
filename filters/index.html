@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app='filtersApp'>
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script type='text/javascript' src='app.js'></script>
+        <script type='text/javascript' src='./controllers/friends.js'></script>
+    </head>
+    <body>
+        <div ng-controller='friendsController'>
+            Search Friends: <input type="text" ng-model="filter_name">
+             <ul>
+               <li ng-repeat="friend in friends | orderBy:'name' | filter: filter_name track by $index">
+                 {{ friend.name }} - age {{ friend.age | number:0 }}, gender {{ friend.gender | uppercase }}
+               </li>
+             </ul>
+        </div>
+    </body>
+</html>

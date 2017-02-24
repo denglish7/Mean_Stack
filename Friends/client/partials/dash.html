@@ -1,0 +1,14 @@
+<div ng-controller='sessionController'>
+    <h3>Welcome {{curUser.name[0].toUpperCase() + curUser.name.slice(1)}}!</h3>
+    <a href="/logout">logout</a>
+
+    <select ng-model='newFriend.userid'>
+        <option ng-repeat='nonfriend in nonfriends' value='{{nonfriend._id}}'>{{nonfriend.name}}</option>
+    </select>
+    <button ng-click='addFriend()'>Add Friend</button>
+
+    <div ng-repeat='friend in friends._friends'>
+        <a href='' ng-click="show(friend._id)">{{friend.name}}</a>
+    </div>
+
+</div>

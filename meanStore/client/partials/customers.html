@@ -1,0 +1,19 @@
+<div ng-controller='customerController'>
+    <h3>Add a new customer</h3>
+    <p ng-repeat='error in errors' style='color: red'>{{error}}</p>
+    Customer Name: <input type="text" ng-model='newCustomer.name'>
+    <button ng-click='addCustomer()'>Add</button><br>
+    <input type="text" ng-model='filter_name.name' placeholder='search...'>
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat='customer in customers | filter: filter_name'>
+            <td>{{customer.name}}</td>
+            <td>{{customer.createdAt | date: MMMM}}</td>
+            <td><a href="" ng-click="removeCustomer(customer._id)">Remove</a></td>
+        </tr>
+    </table>
+</div>

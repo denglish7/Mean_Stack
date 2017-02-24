@@ -1,0 +1,14 @@
+<div ng-controller='productController'>
+    <h3>Add a new product</h3>
+    Name: <input type="text" ng-model='newProduct.name' placeholder="name..."><br>
+    Image (url): <input type="text" ng-model='newProduct.image' placeholder="http://"><br>
+    Description: <textarea ng-model='newProduct.description' id="" cols="30" rows="10"></textarea><br>
+    Initial Quantity:
+    <input type="number" min='1' max='100' ng-model='newProduct.qty'><br>
+    <button ng-click='addProduct()'>Create</button><br>
+    <div ng-repeat='product in products' ng-if='product.qty > 0' style='display: inline-block'>
+        <img ng-src="{{product.image}}" style='width:100px; height: 100px'>
+        <p>{{product.name}}</p>
+        <p>({{product.qty}} left)</p>
+    </div>
+</div>
